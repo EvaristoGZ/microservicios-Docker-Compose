@@ -1,0 +1,89 @@
+services:
+  db:
+    build: ./postgresql
+    image: kc/postgres:15-custom
+    container_name: postgres-kc-vc
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - logs_db:/var/log/postgresql
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+  app:
+    build: ./app
+    image: kc/python:3.13-bookworm-custom
+    container_name: python-kc-vc
+    env_file: .env
+    ports:
+      - "5050:5000"
+    volumes:
+      - logs_app:/var/log/kc-visit-counter
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.13.4
+    container_name: filebeat-kc-vc
+    user: root
+    volumes:
+      - ${PWD}/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - logs_db:/mnt/logs/postgresql:ro
+      - logs_app:/mnt/logs/kc-visit-counter:ro
+    depends_on:
+      - db
+    networks:
+      - backend
+      - monitoring
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    container_name: elasticsearch-kc-vc
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false  # desactiva autenticación para pruebas
+    ports:
+      - "9200:9200"
+    networks:
+      - monitoring
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.13.4
+    container_name: kibana-kc-vc
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - monitoring
+      - frontend
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer-kc-vc
+    env_file: .env
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - frontend
+
+volumes:
+  pgdata:
+  logs_db:
+  logs_app:
+  portainer_data:
+
+networks:
+  frontend:
+  backend:
+  monitoring:

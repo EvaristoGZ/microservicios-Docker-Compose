@@ -1,0 +1,27 @@
+filebeat.inputs:
+  - type: filestream
+    id: app-logs
+    paths:
+      - /mnt/logs/kc-visit-counter/*.log
+    json.keys_under_root: true
+    json.add_error_key: true
+    json.message_key: message
+    tags: ["app"]
+
+  - type: filestream
+    id: postgres-logs
+    paths:
+      - /mnt/logs/postgresql/*.json
+    json.keys_under_root: true
+    json.add_error_key: true
+    tags: ["postgres"]
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+
+setup.kibana:
+  host: "kibana:5601"
+
+logging:
+  to_files: false
+  level: info

@@ -1,0 +1,14 @@
+FROM python:3.13-bookworm
+
+WORKDIR /app
+
+# Copiar requirements e instalar
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar aplicación y estáticos
+COPY app.py .
+COPY /static/ static/
+
+# Correr app.py con Python
+CMD ["python", "app.py"]
