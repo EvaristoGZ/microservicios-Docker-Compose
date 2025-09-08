@@ -3,11 +3,11 @@ Resultado de la Práctica Final del módulo "Contenedores: más que VMs - Docker
 
 Se trata de una práctica con unos hitos marcados que tienen como objetivo aprender a implementar una infraestructura de microservicios con Docker Compose, así como conocer distintas funcionalidades, métodos y técnicas para llevarlo a cabo. 
 
-El resultado final contempla un laboratorio con una arquitectura ficticia y simplificada, pero funcional. En el mismo documento PDF explico y resuelvo cada hito, dando como resultado final el docker-compose.yml.
+El resultado final contempla un laboratorio con una arquitectura ficticia y simplificada, pero funcional. En el mismo documento PDF explico y resuelvo cada hito, dando como resultado final el *docker-compose.yml*.
 
 ---
 
-[🔽 Ir directamente a Cómo desplegar kc-visit-count 🔽](https://github.com/EvaristoGZ/microservicios-Docker-Compose/blob/main/README.md#-c%C3%B3mo-desplegar-kc-visit-counter)
+[🔽 Ir directamente a Cómo desplegar kc-visit-counter 🔽](https://github.com/EvaristoGZ/microservicios-Docker-Compose/blob/main/README.md#-c%C3%B3mo-desplegar-kc-visit-counter)
 
 ## Diagrama de arquitectura
 Diagrama que contempla el resultado final de la arquitectura de microservicios desplegada por el *docker-compose.yml* de este repositorio.
@@ -191,4 +191,5 @@ Your Portainer instance timed out for security purposes. To re-enable your Porta
 ```
 
 Si esto ocurre, no es necesario parar y volver a arrancar todo el compose. Simplemente ejecuta `docker restart portainer-kc-vc` y vuelve a acceder a la dirección URL de Portainer.
+
 
