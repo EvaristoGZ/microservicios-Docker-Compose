@@ -1,15 +1,17 @@
-# Práctica final - Contenedores: más que VMs - Docker
-**XII Edición Bootcamp DevOps & Cloud Computing Full Stack**
+# Microservicios con Docker Compose | Laboratorio práctico
+Resultado de la Práctica Final del módulo "Contenedores: más que VMs - Docker" de la XII Edición Bootcamp DevOps & Cloud Computing Full Stack de KeepCoding.
 
-**Evaristo García Zambrana | 3 de agosto de 2025**
+Se trata de una práctica con unos hitos marcados que tienen como objetivo aprender a implementar una infraestructura de microservicios con Docker Compose, así como conocer distintas funcionalidades, métodos y técnicas para llevarlo a cabo. 
+
+El resultado final contempla un laboratorio con una arquitectura ficticia y simplificada, pero funcional. En el mismo documento PDF explico y resuelvo cada hito, dando como resultado final el docker-compose.yml.
 
 ---
 
-[🔽 Ir directamente a Cómo desplegar kc-visit-count 🔽](https://github.com/KeepCodingCloudDevops12/EvaristoGZ_02-Docker/blob/main/README.md#-c%C3%B3mo-desplegar-kc-visit-counter)
+[🔽 Ir directamente a Cómo desplegar kc-visit-count 🔽](https://github.com/EvaristoGZ/microservicios-Docker-Compose/blob/main/README.md#-c%C3%B3mo-desplegar-kc-visit-counter)
 
 ## Diagrama de arquitectura
 Diagrama que contempla el resultado final de la arquitectura de microservicios desplegada por el *docker-compose.yml* de este repositorio.
-![Diagrama de arquitectura de la aplicación desplegada con Docker Compose](https://github.com/KeepCodingCloudDevops12/EvaristoGZ_02-Docker/blob/main/02%20-%20Diagrama%20Docker%20Compose%20-%20Evaristo%20GZ.drawio.jpg)
+![Diagrama de arquitectura de la aplicación desplegada con Docker Compose](https://github.com/EvaristoGZ/microservicios-Docker-Compose/blob/main/02%20-%20Diagrama%20Docker%20Compose%20-%20Evaristo%20GZ.drawio.jpg)
 
 ## Descripción de la aplicación
 
@@ -59,13 +61,13 @@ Ejecutado en Windows 11 con Docker Desktop 4.43.2, Docker Engine 28.3.2, Docker 
 
 ### 1. Clona el repositorio de GitHub
 ```
-git clone https://github.com/KeepCodingCloudDevops12/EvaristoGZ_02-Docker
+git clone https://github.com/EvaristoGZ/microservicios-Docker-Compose
 ```
 
 
 ### 2. Ubícate en el directorio Git
 ```
-cd EvaristoGZ_02-Docker
+cd microservicios-Docker-Compose
 ```
 
 ### 3. Da permisos a filebeat.yml
@@ -160,7 +162,7 @@ Recuerda que, la eliminación de los volúmenes no es una eliminación del recur
 ## Documento paso a paso
 Este repositorio forma parte de la Práctica Final del módulo "Contenedores: más que VMs - Docker" perteneciente a la XII Edición Bootcamp DevOps & Cloud Computing Full Stack.
 
-Puedes consultar los hitos principales y los hitos extras que se solicitaban en el documento PDF: "[01 - Evaristo GZ - Práctica Final Contenedores, más que VMs - Docker.pdf](https://github.com/KeepCodingCloudDevops12/EvaristoGZ_02-Docker/blob/main/01%20-%20Evaristo%20GZ%20-%20Pr%C3%A1ctica%20Final%20-%20Contenedores%2C%20m%C3%A1s%20que%20VMs%20-%20Docker.pdf)" donde se detalla y explica el paso a paso para completar los requerimientos.
+Puedes consultar los hitos principales y los hitos extras que se solicitaban en el documento PDF: "[01 - Evaristo GZ - Práctica Final Contenedores, más que VMs - Docker.pdf](https://github.com/EvaristoGZ/microservicios-Docker-Compose/blob/main/01%20-%20Evaristo%20GZ%20-%20Pr%C3%A1ctica%20Final%20-%20Contenedores%2C%20m%C3%A1s%20que%20VMs%20-%20Docker.pdf)" donde se detalla y explica el paso a paso para completar los requerimientos.
 
 
 ## Errores comunes
@@ -175,10 +177,10 @@ Si tras el punto anterior, encuentras que el contenedor *filebeat-kc-vc* no est�
 Exiting: error loading config file: config file ("filebeat.yml") can only be writable by the owner but the permissions are "-rw-rw-r--" (to fix the permissions use: 'chmod go-w /usr/share/filebeat/filebeat.yml')
 ```
 
-En caso de ser así, ejecuta el [paso 3 de Cómo desplegar kc-visit-count](https://github.com/KeepCodingCloudDevops12/EvaristoGZ_02-Docker?tab=readme-ov-file#3-da-permisos-a-filebeatyml) y vuelve a intentar levantar el Docker Compose.
+En caso de ser así, ejecuta el [paso 3 de Cómo desplegar kc-visit-count](https://github.com/EvaristoGZ/microservicios-Docker-Compose?tab=readme-ov-file#3-da-permisos-a-filebeatyml) y vuelve a intentar levantar el Docker Compose.
 
 ### .env not found
-Si recibes este error, significa que no has creado el .env detallado en el [paso 4 de Cómo desplegar kc-visit-count](https://github.com/KeepCodingCloudDevops12/EvaristoGZ_02-Docker?tab=readme-ov-file#4-crea-el-fichero-env) o bien lo has creado en otro directorio distinto al directorio del repositorio.
+Si recibes este error, significa que no has creado el .env detallado en el [paso 4 de Cómo desplegar kc-visit-count](https://github.com/EvaristoGZ/microservicios-Docker-Compose?tab=readme-ov-file#4-crea-el-fichero-env) o bien lo has creado en otro directorio distinto al directorio del repositorio.
 
 ### No puedo acceder a Portainer
 Portainer tiene una medida de seguridad que impide establecer una contraseña para el usuario admin si han pasado más de cinco minutos y nadie ha accedido a la dirección URL.
