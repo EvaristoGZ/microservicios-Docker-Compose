@@ -150,7 +150,7 @@ Esto eliminará los servicios, los contenedores y las redes. En caso de querer v
 ### 10. Elimina los servicios creados con Docker Compose
 Por último, si deseas no tener rastro de este proyecto en tu sistema, utiliza el parámetro *-d*:
 ```
-docker compose down -v
+docker compose down -d
 ```
 
 Esto hará que, además de parar los servicios, contenedores y redes, elimine también volúmenes creados por el fichero *docker-compose.yml*.
@@ -191,5 +191,6 @@ Your Portainer instance timed out for security purposes. To re-enable your Porta
 ```
 
 Si esto ocurre, no es necesario parar y volver a arrancar todo el compose. Simplemente ejecuta `docker restart portainer-kc-vc` y vuelve a acceder a la dirección URL de Portainer.
+
 
 
